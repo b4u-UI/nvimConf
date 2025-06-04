@@ -137,3 +137,9 @@ set backup
 
 set clipboard=unnamedplus
 
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+" Move between splits using Alt + h/j/k/l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
