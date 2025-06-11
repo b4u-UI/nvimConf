@@ -46,7 +46,6 @@ call plug#end()
 " ======================
 " Lua Configs
 " ======================
-
 lua << EOF
 require('nvim-treesitter.configs').setup {
   ensure_installed = "all",
@@ -57,7 +56,6 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
-
 require('nvim-autopairs').setup({
   check_ts = true,
   ts_config = {
@@ -78,19 +76,22 @@ require("nvim-tree").setup({
   },
 })
 
+require("catppuccin").setup({
+  flavour = "macchiato",
+})
+
+vim.cmd("colorscheme catppuccin")
+
 require("lualine").setup()
 
-vim.keymap.set('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-f>', ':Telescope live_grep<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 EOF
+
 " ======================
 " Appearance & Theme
 " ======================
 syntax enable
 set termguicolors
 set background=dark
-colorscheme catppuccin 
 
 " ======================
 " General Settings
@@ -135,11 +136,28 @@ set autoread
 set undofile
 set backup
 
-set clipboard=unnamedplus
+" ======================
+"For Long horizontal line
+" ======================
+set nowrap
+set sidescroll=1
+set sidescrolloff=5
 
+" ======================
+" UI & Mappings
+" ======================
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-" Move between splits using Alt + h/j/k/l
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
+
+" Telescope & NvimTree Keymaps
+nnoremap <C-p> :Telescope find_files<CR>
+nnoremap <C-f> :Telescope live_grep<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
+
+" ======================
+" Key Mappings
+" ======================
+inoremap jk <Esc>
