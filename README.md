@@ -1,1 +1,1 @@
-Noting To READ, just Nvim Config
+Nothing To READ, just Nvim Config
